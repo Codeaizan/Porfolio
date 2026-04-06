@@ -3088,31 +3088,32 @@
         <div class="contact-right">
             <h2 class="contact-title">Let's Work Together</h2>
             <p class="contact-intro">Let's build something impactful together - whether it's your brand, your website, or your next big idea.</p>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formsubmit.co/faizanrahman51@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Portfolio Lead!">
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-input" placeholder="John Smith">
+                        <input type="text" name="name" class="form-input" placeholder="John Smith" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-input" placeholder="johnsmith@gmail.com">
+                        <input type="email" name="email" class="form-input" placeholder="johnsmith@gmail.com" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Service Needed ?</label>
-                    <select class="form-input form-select">
-                        <option>Select...</option>
-                        <option>Web Development</option>
-                        <option>SaaS Development</option>
-                        <option>Software Development</option>
-                        <option>Maintenance & Support</option>
-                        <option>AI Development & Automation</option>
+                    <select name="service" class="form-input form-select" required>
+                        <option value="" disabled selected>Select...</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="SaaS Development">SaaS Development</option>
+                        <option value="Software Development">Software Development</option>
+                        <option value="Maintenance & Support">Maintenance & Support</option>
+                        <option value="AI Development & Automation">AI Development & Automation</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-label">What Can I Help You...</label>
-                    <textarea class="form-input form-textarea" placeholder="Hello, I'd like to enquire about..."></textarea>
+                    <textarea name="message" class="form-input form-textarea" placeholder="Hello, I'd like to enquire about..." required></textarea>
                 </div>
                 <button type="submit" class="btn-submit">SUBMIT</button>
             </form>
