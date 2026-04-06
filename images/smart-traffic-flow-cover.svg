@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Traffic Flow cover</title>
+  <desc id="desc">Dark neon city traffic cover art with adaptive lanes and data nodes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#04070f"/>
+      <stop offset="100%" stop-color="#0a1524"/>
+    </linearGradient>
+    <linearGradient id="laneA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4ceb70"/>
+      <stop offset="100%" stop-color="#00e8ff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <g stroke="rgba(255,255,255,0.08)">
+    <path d="M0 760H1600"/>
+    <path d="M0 690H1600"/>
+    <path d="M0 620H1600"/>
+    <path d="M0 550H1600"/>
+    <path d="M0 480H1600"/>
+    <path d="M0 410H1600"/>
+    <path d="M0 340H1600"/>
+  </g>
+
+  <g fill="none" stroke="url(#laneA)" stroke-width="10" stroke-linecap="round" filter="url(#glow)">
+    <path d="M120 860 C 360 760, 520 760, 740 640 C 860 575, 980 520, 1240 520"/>
+    <path d="M300 900 C 540 780, 690 770, 900 640 C 1020 565, 1130 510, 1420 480" opacity="0.8"/>
+    <path d="M40 940 C 220 860, 370 840, 620 710 C 780 625, 930 560, 1200 540" opacity="0.5"/>
+  </g>
+
+  <g fill="#4ceb70" filter="url(#glow)">
+    <circle cx="430" cy="775" r="10"/>
+    <circle cx="715" cy="655" r="11"/>
+    <circle cx="980" cy="545" r="12"/>
+    <circle cx="1260" cy="510" r="10"/>
+  </g>
+
+  <g stroke="#00e8ff" stroke-width="2" fill="none" opacity="0.55">
+    <polyline points="430,775 715,655 980,545 1260,510"/>
+    <polyline points="300,900 620,710 900,640 1200,540"/>
+  </g>
+
+  <text x="95" y="165" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="38" letter-spacing="4">AI MOBILITY</text>
+  <text x="95" y="265" fill="#ffffff" font-family="Bebas Neue, Oswald, Arial, sans-serif" font-size="128" letter-spacing="5">SMART TRAFFIC FLOW</text>
+  <text x="95" y="318" fill="rgba(255,255,255,0.72)" font-family="Inter, Arial, sans-serif" font-size="28">Adaptive signals. Predictive routing. Less congestion.</text>
+</svg>

@@ -437,35 +437,19 @@
             overflow: hidden;
         }
 
-        .tech-icon svg {
+        .tech-icon svg,
+        .tech-icon img {
             width: 30px;
             height: 30px;
             display: block;
         }
 
-        .tech-icon.framer svg,
-        .tech-icon.x svg {
-            fill: #ffffff;
+        .tech-icon img {
+            object-fit: contain;
         }
 
         .tech-icon.figma {
             background: #0a0a0a;
-        }
-
-        .tech-icon.spline {
-            background: linear-gradient(135deg, #7a5cff 0%, #30d7ff 52%, #ff49a8 100%);
-        }
-
-        .tech-icon.spline svg {
-            fill: #ffffff;
-        }
-
-        .tech-icon.lemon {
-            background: #5d2dff;
-        }
-
-        .tech-icon.lemon svg {
-            fill: #ffe055;
         }
 
         .tech-item-title {
@@ -504,7 +488,7 @@
             display: block;
         }
 
-        /* Design process section below tech stack */
+        /* Process section below tech stack */
         .process-section {
             position: relative;
             z-index: 6;
@@ -1403,7 +1387,7 @@
             text-align: right;
             margin: 15px 0 0 0;
             max-width: 320px;
-            align-self: flex-end; /* Pushes the paragraph to align right exactly at the boundary of DESIGNER */
+            align-self: flex-end; /* Keeps the paragraph visually anchored to the right boundary */
         }
 
         /* Bottom Toggle */
@@ -2874,7 +2858,7 @@
         
         <!-- The default large contact button -->
         <div class="nav-contact">
-            <a href="#" class="btn-contact">Contact</a>
+            <a href="#contact" class="btn-contact">Contact</a>
         </div>
 
         <!-- The compact "Available for work" tag, hidden by default until scrolling down -->
@@ -2899,8 +2883,9 @@
             <div class="about-hero-left">
                 <h1 class="about-title">ABOUT ME</h1>
                 <h2 class="about-name">Faizan Ur Rahman</h2>
-                <p class="about-copy">I'm a digital designer and Framer developer passionate about crafting meaningful, user-centered experiences.</p>
-                <p class="about-copy">With a strong foundation in visual design and a deep understanding of interactive systems, I bring ideas to life through thoughtful design, smooth animations, and responsive layouts.</p>
+                <p class="about-copy">I build digital products from the ground up - combining strong engineering with user-focused interfaces.
+My focus is on shipping fast, reliable applications that solve real business problems.</p>
+                <p class="about-copy">I care about architecture, performance, and maintainable code so each release is stable, scalable, and easy to evolve.</p>
                 <div class="about-social-links" aria-label="Social links">
                     <a href="https://www.linkedin.com/in/faizanurrahman03" target="_blank" class="about-social-icon" aria-label="LinkedIn">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
@@ -2922,7 +2907,7 @@
     <section class="services-section">
         <div class="services-left">
             <h2 class="services-title">What I Can Do For You</h2>
-            <p class="services-intro">As a digital designer, I am a visual storyteller, crafting experiences that connect deeply and spark creativity.</p>
+            <p class="services-intro">I help turn your ideas into complete digital products — built with clarity, performance, and usability in mind.</p>
             <ul class="services-list">
                 <li class="service-item"><span>1. Web Development</span><span class="service-chevron">^</span></li>
                 <li class="service-item"><span>2. SaaS Development</span><span class="service-chevron">^</span></li>
@@ -2940,66 +2925,88 @@
     <section class="tech-stack-section">
         <div class="tech-left">
             <h2 class="tech-title">My Tech Stack</h2>
-            <p class="tech-intro">I build with intention. Framer for fast, interactive web design. Figma for clean interfaces. Notion and X for content. Each tool supports how I think, design, and ship.</p>
+            <p class="tech-intro">I build with intention. From robust backend systems to performant front-end interfaces. Each tool supports how I architect, build, and ship.</p>
 
             <ul class="tech-list">
                 <li class="tech-item">
-                    <div class="tech-icon framer" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" role="img" focusable="false">
-                            <path d="M4 4h16l-7 8h7l-8 8v-6L4 4z"></path>
-                        </svg>
+                    <div class="tech-icon react" aria-hidden="true">
+                        <img src="images/tech/react.svg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://cdn.simpleicons.org/react/61DAFB';">
                     </div>
                     <div>
-                        <h3 class="tech-item-title">Framer</h3>
-                        <p class="tech-item-desc">My creative playground for building interactive and responsive websites - fast, flexible, and no code.</p>
+                        <h3 class="tech-item-title">React</h3>
+                        <p class="tech-item-desc">Building dynamic, responsive user interfaces and robust front-end architectures.</p>
+                    </div>
+                </li>
+                <li class="tech-item">
+                    <div class="tech-icon supabase" aria-hidden="true">
+                        <img src="images/tech/supabase.svg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://cdn.simpleicons.org/supabase/3ECF8E';">
+                    </div>
+                    <div>
+                        <h3 class="tech-item-title">Supabase</h3>
+                        <p class="tech-item-desc">Secure open-source backend powering real-time databases and authentication seamlessly.</p>
+                    </div>
+                </li>
+                <li class="tech-item">
+                    <div class="tech-icon swdev" aria-hidden="true">
+                        <img src="images/tech/devdotto.svg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://cdn.simpleicons.org/devdotto/FFFFFF';">
+                    </div>
+                    <div>
+                        <h3 class="tech-item-title">Software Dev</h3>
+                        <p class="tech-item-desc">Core software engineering practices for scalable, maintainable, and clean code architecture.</p>
+                    </div>
+                </li>
+                <li class="tech-item">
+                    <div class="tech-icon python" aria-hidden="true">
+                        <img src="images/tech/python.svg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://cdn.simpleicons.org/python/3776AB';">
+                    </div>
+                    <div>
+                        <h3 class="tech-item-title">Python</h3>
+                        <p class="tech-item-desc">Versatile scripting, backend logic, and robust process automation.</p>
+                    </div>
+                </li>
+                <li class="tech-item">
+                    <div class="tech-icon django" aria-hidden="true">
+                        <img src="images/tech/django.svg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://cdn.simpleicons.org/django/092E20';">
+                    </div>
+                    <div>
+                        <h3 class="tech-item-title">Django</h3>
+                        <p class="tech-item-desc">Rapid backend web development prioritizing security, scalability, and maintainable architecture.</p>
+                    </div>
+                </li>
+                <li class="tech-item">
+                    <div class="tech-icon sql" aria-hidden="true">
+                        <img src="images/tech/postgresql.svg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://cdn.simpleicons.org/postgresql/4169E1';">
+                    </div>
+                    <div>
+                        <h3 class="tech-item-title">SQL</h3>
+                        <p class="tech-item-desc">Structuring, managing, and querying relational databases optimally.</p>
                     </div>
                 </li>
                 <li class="tech-item">
                     <div class="tech-icon figma" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" role="img" focusable="false">
-                            <circle cx="9" cy="5" r="4" fill="#f24e1e"></circle>
-                            <circle cx="15" cy="5" r="4" fill="#ff7262"></circle>
-                            <circle cx="9" cy="12" r="4" fill="#a259ff"></circle>
-                            <circle cx="15" cy="12" r="4" fill="#1abcfe"></circle>
-                            <circle cx="9" cy="19" r="4" fill="#0acf83"></circle>
-                        </svg>
+                        <img src="images/tech/figma.svg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://cdn.simpleicons.org/figma/F24E1E';">
                     </div>
                     <div>
                         <h3 class="tech-item-title">Figma</h3>
-                        <p class="tech-item-desc">Where I connect, share insights, and grow within the design and Framer community.</p>
+                        <p class="tech-item-desc">Prototyping, wireframing, and refining high-fidelity UI and user experiences.</p>
                     </div>
                 </li>
                 <li class="tech-item">
-                    <div class="tech-icon x" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" role="img" focusable="false">
-                            <path d="M18.9 3h2.7l-6 6.86L23 21h-5.86l-4.58-6.03L7.3 21H4.6l6.45-7.37L3 3h5.99l4.14 5.45L18.9 3z"></path>
-                        </svg>
+                    <div class="tech-icon aiml" aria-hidden="true">
+                        <img src="images/tech/tensorflow.svg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://cdn.simpleicons.org/tensorflow/FF6F00';">
                     </div>
                     <div>
-                        <h3 class="tech-item-title">X</h3>
-                        <p class="tech-item-desc">My go-to for UI and UX ideation - perfect for wireframing, prototyping, and collaborating in real time.</p>
+                        <h3 class="tech-item-title">AI &amp; ML</h3>
+                        <p class="tech-item-desc">Integrating artificial intelligence features and machine learning models into real-world applications.</p>
                     </div>
                 </li>
                 <li class="tech-item">
-                    <div class="tech-icon spline" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" role="img" focusable="false">
-                            <path d="M6 6c3-3 9-3 12 0s3 9 0 12-9 3-12 0-3-9 0-12zm2.3 8.7c1.7 1.7 5.7 1.6 7.4-.2 1.4-1.5 1.3-3.8-.2-5.2-1.8-1.7-5.7-1.6-7.4.2-1.4 1.5-1.3 3.8.2 5.2z"></path>
-                        </svg>
+                    <div class="tech-icon n8n" aria-hidden="true">
+                        <img src="images/tech/n8n.svg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://cdn.simpleicons.org/n8n/EA4B71';">
                     </div>
                     <div>
-                        <h3 class="tech-item-title">Spline</h3>
-                        <p class="tech-item-desc">My tool for bringing 3D visuals into the web - perfect for adding playful, interactive depth to projects.</p>
-                    </div>
-                </li>
-                <li class="tech-item">
-                    <div class="tech-icon lemon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" role="img" focusable="false">
-                            <path d="M11.5 2.4c2.7.4 4.9 2.2 5.8 4.7-2.6-.4-4.9-2.2-5.8-4.7zM7.1 7.6c3.3-.2 6.1 2.2 6.3 5.5-3.3.2-6.1-2.2-6.3-5.5zm8.8 3.4c2.8.2 5 2.6 4.8 5.4-2.8-.2-5-2.6-4.8-5.4zM9.7 13.6c2.4 1.4 3.2 4.4 1.8 6.8-2.4-1.4-3.2-4.4-1.8-6.8z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="tech-item-title">Lemon Squeezy</h3>
-                        <p class="tech-item-desc">My trusted solution for managing payments and licensing digital products effortlessly.</p>
+                        <h3 class="tech-item-title">n8n</h3>
+                        <p class="tech-item-desc">Node-based workflow automation to seamlessly integrate various apps and APIs.</p>
                     </div>
                 </li>
             </ul>
@@ -3009,56 +3016,56 @@
         </div>
     </section>
 
-    <!-- Design Process Section (below Tech Stack) -->
+    <!-- Development Process Section (below Tech Stack) -->
     <section class="process-section">
         <div class="process-wrap">
-            <h2 class="process-title">Design With Strategy And Creativity</h2>
-            <p class="process-intro">My process blends strategy and creativity to address challenges, craft solutions, and deliver designs that effectively communicate your message.</p>
+            <h2 class="process-title">Build With Strategy And Engineering</h2>
+            <p class="process-intro">My process blends product strategy and engineering discipline to ship reliable software that solves real business problems.</p>
 
             <div class="process-grid">
                 <article class="process-card text left">
                     <p class="process-step">01.</p>
-                    <h3 class="process-step-title">Research &amp; Strategy</h3>
-                    <p class="process-step-desc">In this phase, I dive deep into understanding your business, target audience, and project goals. Through research and strategic planning, I create a clear roadmap to guide the entire design process.</p>
+                    <h3 class="process-step-title">Requirements &amp; Architecture</h3>
+                    <p class="process-step-desc">I start by understanding your product goals, users, and constraints, then define architecture, data models, and delivery milestones.</p>
                 </article>
 
                 <article class="process-image-card">
-                    <img src="pc.avif" alt="Design process workspace" class="process-image">
+                    <img src="pc.avif" alt="Development process workspace" class="process-image">
                 </article>
 
                 <article class="process-card text right">
                     <p class="process-step">02.</p>
-                    <h3 class="process-step-title">Concept &amp; Ideation</h3>
-                    <p class="process-step-desc">Here, I brainstorm and develop creative concepts that align with your vision. Initial sketches and ideas are refined into tangible wireframes, setting the direction for design and functionality.</p>
+                    <h3 class="process-step-title">Development &amp; Implementation</h3>
+                    <p class="process-step-desc">Core features are built iteratively with clean code practices, reusable components, and API-first integration.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Extended Design Process Section (03-05) -->
+    <!-- Extended Development Process Section (03-05) -->
     <section class="process-flow-section">
         <div class="process-flow-wrap">
             <div class="process-flow-grid">
                 <article class="flow-img top">
-                    <img src="pc.avif" alt="Creative process visual">
+                    <img src="pc.avif" alt="Engineering workflow visual">
                 </article>
 
                 <article class="flow-card text dark step3">
                     <p class="process-step">03.</p>
-                    <h3 class="process-step-title">Feedback &amp; Refinement</h3>
-                    <p class="process-step-desc">Collaboration is key. I review the design with you, gather feedback, and refine the work to align with your expectations and goals. This ensures the design reflects your vision.</p>
+                    <h3 class="process-step-title">Feedback &amp; Iteration</h3>
+                    <p class="process-step-desc">I ship incremental builds, gather feedback, and refine features based on user behavior and business priorities.</p>
                 </article>
 
                 <article class="flow-card text lime step4">
                     <p class="process-step">04.</p>
                     <h3 class="process-step-title">Testing &amp; Optimization</h3>
-                    <p class="process-step-desc">I conduct thorough testing to identify and solve usability, accessibility, and performance issues. Every interaction is tuned so the final experience feels smooth, fast, and reliable.</p>
+                    <p class="process-step-desc">I run functional, performance, and edge-case testing to ensure the product is secure, fast, and dependable under real usage.</p>
                 </article>
 
                 <article class="flow-card text light step5">
                     <p class="process-step">05.</p>
-                    <h3 class="process-step-title">Launch &amp; Delivery</h3>
-                    <p class="process-step-desc">Once approved, I prepare final files and launch-ready assets with clean handoff documentation so your team can deploy confidently and maintain quality at every touchpoint.</p>
+                    <h3 class="process-step-title">Launch &amp; Handover</h3>
+                    <p class="process-step-desc">After approval, I handle deployment, documentation, and handover so your team can scale and maintain the product confidently.</p>
                 </article>
 
                 <article class="flow-img bottom">
@@ -3069,7 +3076,7 @@
     </section>
 
     <!-- Let's Work Together Section -->
-    <section class="contact-section">
+    <section id="contact" class="contact-section">
         <div class="contact-left">
             <div class="contact-image-wrapper">
                 <img src="me-small.jpg" alt="Let's work together portrait" class="contact-image">
@@ -3087,7 +3094,7 @@
         </div>
         <div class="contact-right">
             <h2 class="contact-title">Let's Work Together</h2>
-            <p class="contact-intro">Let's build something impactful together - whether it's your brand, your website, or your next big idea.</p>
+            <p class="contact-intro">Let's build something impactful together - from MVPs to production-ready software products.</p>
             <form class="contact-form" action="https://formsubmit.co/faizanrahman51@gmail.com" method="POST">
                 <input type="hidden" name="_subject" value="New Portfolio Lead!">
                 <div class="form-row">
@@ -3132,8 +3139,8 @@
                 <a href="mailto:faizanrahman51@gmail.com" class="footer-value">faizanrahman51@gmail.com</a>
             </div>
             <div class="footer-col">
-                <h4 class="footer-label">Call Today :</h4>
-                <p class="footer-value">+919128950883</p>
+                <h4 class="footer-label">Availability :</h4>
+                <p class="footer-value">Open to new projects</p>
             </div>
             <div class="footer-col footer-social-col">
                 <h4 class="footer-label">Social :</h4>
@@ -3153,7 +3160,7 @@
         </div>
         <div class="footer-divider"></div>
         <div class="footer-bottom">
-            <p class="footer-copy">© Copyright 2025. All Rights Reserved by <a href="#" class="footer-link">Faizanur Rahman</a></p>
+            <p class="footer-copy">© Copyright 2026. All Rights Reserved by <a href="#" class="footer-link">Faizanur Rahman</a></p>
             <div class="footer-credit">
                 <span>Created by</span>
                 <div class="credit-logo">

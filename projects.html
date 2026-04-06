@@ -42,44 +42,199 @@
 
         .navbar {
             position: fixed;
-            top: 30px;
+            top: 40px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 40;
+            background-color: #121212;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 18px;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: #111217;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+            padding: 8px;
+            border-radius: 50px;
+            width: max-content;
+            max-width: 90%;
+            z-index: 100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
         }
 
-        .navbar img {
-            width: 38px;
-            height: 38px;
+        .nav-available {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 0;
+            opacity: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: max-width 0.4s cubic-bezier(0.25, 1, 0.5, 1), margin 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+        }
+
+        .available-text {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        @keyframes pulseDot {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0.5; }
+        }
+
+        .available-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #4ceb70;
             border-radius: 50%;
+            box-shadow: 0 0 10px #4ceb70;
+            animation: pulseDot 2s infinite ease-in-out;
+            flex-shrink: 0;
+        }
+
+        .navbar.scrolled {
+            padding: 6px;
+            top: 20px;
+        }
+
+        .navbar.scrolled .nav-profile img {
+            width: 36px;
+            height: 36px;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .navbar.scrolled .nav-links,
+        .navbar.scrolled .nav-contact {
+            max-width: 0;
+            margin-left: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .navbar.scrolled .nav-available {
+            max-width: 200px;
+            margin-left: 16px;
+            margin-right: 12px;
+            opacity: 1;
+        }
+
+        .nav-profile img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: block;
             object-fit: cover;
             object-position: 50% 15%;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .nav-links {
             display: flex;
-            align-items: center;
-            gap: 18px;
+            gap: 24px;
+            margin-left: 30px;
+            max-width: 500px;
+            opacity: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: max-width 0.5s cubic-bezier(0.25, 1, 0.5, 1), margin 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
         }
 
         .nav-links a {
-            color: #d8d8d8;
+            position: relative;
+            display: block;
             text-decoration: none;
             font-size: 15px;
-            line-height: 1;
-            padding: 4px;
+            font-weight: 400;
+            color: transparent;
+            line-height: 1.2;
+            padding: 4px 6px;
+            perspective: 600px;
         }
 
-        .nav-links a.active { color: #ffffff; }
+        .nav-links a::before,
+        .nav-links a::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s cubic-bezier(0.5, 0, 0.2, 1), opacity 0.3s ease;
+            transform-origin: 50% 50% -10px;
+        }
+
+        .nav-links a::before {
+            color: #d1d1d1;
+            transform: rotateX(0deg);
+        }
+
+        .nav-links a::after {
+            color: #4ceb70;
+            transform: rotateX(-90deg);
+            opacity: 0;
+        }
+
+        .nav-links a:hover::before {
+            transform: rotateX(90deg);
+            opacity: 0;
+        }
+
+        .nav-links a:hover::after {
+            transform: rotateX(0deg);
+            opacity: 1;
+        }
+
+        .nav-contact {
+            margin-left: 30px;
+            max-width: 200px;
+            opacity: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: max-width 0.5s cubic-bezier(0.25, 1, 0.5, 1), margin 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+        }
+
+        .btn-contact {
+            background-color: #ffffff;
+            color: #121212;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .btn-contact::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            width: 40px;
+            height: 40px;
+            background-color: #4ceb70;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.4s cubic-bezier(0.5, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .btn-contact:hover::before {
+            transform: scale(6);
+        }
+
+        .btn-contact:hover {
+            color: #121212;
+        }
 
         /* The page layout container */
         .page-content {
@@ -307,6 +462,21 @@
             display: block;
         }
 
+        .project-image-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .project-image-link img {
+            transition: transform 0.45s ease, filter 0.45s ease;
+        }
+
+        .project-image-link:hover img {
+            transform: scale(1.03);
+            filter: brightness(1.08);
+        }
+
         .project-info {
             display: flex;
             flex-direction: column;
@@ -335,6 +505,16 @@
             text-transform: uppercase;
         }
 
+        .project-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .project-title a:hover {
+            color: #caff4c;
+        }
+
         .project-desc {
             margin: 0;
             font-size: clamp(15px, 1.2vw, 17px);
@@ -354,11 +534,20 @@
     <div class="vignette"></div>
 
     <nav class="navbar">
-        <img src="me-small.jpg" alt="Profile">
+        <div class="nav-profile">
+            <img src="me-small.jpg" alt="Profile">
+        </div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="projects.html" class="active">Projects</a>
+            <a href="index.html" data-text="Home">Home</a>
+            <a href="about.html" data-text="About">About</a>
+            <a href="projects.html" data-text="Projects">Projects</a>
+        </div>
+        <div class="nav-contact">
+            <a href="about.html#contact" class="btn-contact">Contact</a>
+        </div>
+        <div class="nav-available">
+            <span class="available-text">Available for work</span>
+            <span class="available-dot"></span>
         </div>
     </nav>
 
@@ -398,7 +587,7 @@
                                 <div class="featured-showcase-content">
                                     <span class="featured-pill">SaaS Development</span>
                                     <h3 class="featured-showcase-title">Campus Bites Hub</h3>
-                                    <p class="featured-showcase-text">An integrated university food ordering dashboard designed for rapid access, ease of menus, and quick student deliveries.</p>
+                                    <p class="featured-showcase-text">An integrated university food ordering dashboard built for rapid access, clear menus, and quick student deliveries.</p>
                                 </div>
                             </a>
                         </div>
@@ -439,51 +628,43 @@
             <div class="projects-grid">
                 <article class="project-card">
                     <div class="project-image-wrapper">
-                        <!-- Update image src to your actual image file -->
-                        <img src="pc.avif" alt="Pantone Very Peri Poster Design">
+                        <a class="project-image-link" href="https://smart-traffic-flow-chi.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Smart Traffic Flow">
+                            <img src="images/smart-traffic-flow-cover.svg" alt="Smart Traffic Flow cover image">
+                        </a>
                     </div>
                     <div class="project-info">
-                        <span class="project-pill">Graphic Design</span>
-                        <h3 class="project-title">PANTONE VERY PERI POSTER DESIGN</h3>
-                        <p class="project-desc">A minimalist poster design inspired by Pantone's Color of the Year 2022, Very Peri, combining clean typography, a soft periwinkle background, and a delicate blue branch illustration for a fresh, contemporary look.</p>
+                        <span class="project-pill">AI Automation</span>
+                        <h3 class="project-title"><a href="https://smart-traffic-flow-chi.vercel.app/" target="_blank" rel="noopener noreferrer">SMART TRAFFIC FLOW</a></h3>
+                        <p class="project-desc">An AI-powered traffic optimization concept using adaptive signal logic and predictive routing to reduce congestion and improve urban mobility flow.</p>
                     </div>
                 </article>
 
                 <article class="project-card">
                     <div class="project-image-wrapper">
-                        <!-- Update image src to your actual image file -->
-                        <img src="pc.avif" alt="Intenza Brand Boutique E-Gift Card Design">
+                        <a class="project-image-link" href="https://neon-drive-ai-scapes.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Neon Drive AI Scapes">
+                            <img src="images/neon-drive-ai-scapes-cover.svg" alt="Neon Drive AI Scapes cover image">
+                        </a>
                     </div>
                     <div class="project-info">
-                        <span class="project-pill">Graphic Design</span>
-                        <h3 class="project-title">INTENZA BRAND BOUTIQUE E-GIFT CARD DESIGN</h3>
-                        <p class="project-desc">Created a modern and elegant e-gift card for Intenza Brand Boutique. Emphasized minimalism and premium aesthetics with a sleek black holder and a dynamic, fitness-inspired card image to reflect the brand's active lifestyle identity.</p>
+                        <span class="project-pill">Computer Vision</span>
+                        <h3 class="project-title"><a href="https://neon-drive-ai-scapes.vercel.app/" target="_blank" rel="noopener noreferrer">NEON DRIVE AI SCAPES</a></h3>
+                        <p class="project-desc">A futuristic AI driving showcase that blends perception pipelines, route planning concepts, and neon cinematic interface storytelling.</p>
                     </div>
                 </article>
 
                 <article class="project-card">
                     <div class="project-image-wrapper">
-                        <!-- Update image src to your actual image file -->
-                        <img src="pc.avif" alt="Neon Pulse Launch Campaign">
+                        <a class="project-image-link" href="https://digital-safeguard-quest.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Digital Safeguard Quest">
+                            <img src="images/digital-safeguard-quest-cover.svg" alt="Digital Safeguard Quest cover image">
+                        </a>
                     </div>
                     <div class="project-info">
-                        <span class="project-pill">Campaign</span>
-                        <h3 class="project-title">NEON PULSE LAUNCH CAMPAIGN</h3>
-                        <p class="project-desc">Built a high-energy launch narrative with social-first visuals, motion-led teasers, and conversion-focused landing assets. Expanding the brand's reach across digital channels.</p>
+                        <span class="project-pill">Cybersecurity</span>
+                        <h3 class="project-title"><a href="https://digital-safeguard-quest.vercel.app/" target="_blank" rel="noopener noreferrer">DIGITAL SAFEGUARD QUEST</a></h3>
+                        <p class="project-desc">An interactive security-focused project centered on threat awareness, secure digital habits, and practical defense workflows for modern users.</p>
                     </div>
                 </article>
 
-                <article class="project-card">
-                    <div class="project-image-wrapper">
-                        <!-- Update image src to your actual image file -->
-                        <img src="pc.avif" alt="Immersive Web Experience">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-pill">Web Design</span>
-                        <h3 class="project-title">IMMERSIVE WEB EXPERIENCE</h3>
-                        <p class="project-desc">Designed an immersive scrolling story experience that unified product education, brand voice, and lead generation goals. Focused on fluid typography and engaging micro-interactions.</p>
-                    </div>
-                </article>
             </div>
         </div>
     </div>
@@ -491,9 +672,11 @@
     <script>
         const canvas = document.getElementById('staticCanvas');
         const ctx = canvas.getContext('2d', { alpha: false });
+        const navbar = document.querySelector('.navbar');
         const featuredLock = document.querySelector('.featured-lock');
         const featuredSeqCards = Array.from(document.querySelectorAll('.featured-seq-card'));
         let scrollTicking = false;
+        let lastScrollY = window.scrollY;
 
         let staticImageData = null;
 
@@ -582,6 +765,19 @@
         }
 
         function onScrollFrame() {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > 100) {
+                if (currentScrollY > lastScrollY) {
+                    navbar.classList.add('scrolled');
+                } else if (currentScrollY < lastScrollY - 5) {
+                    navbar.classList.remove('scrolled');
+                }
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScrollY = currentScrollY;
             updateFeaturedCardSequence();
             scrollTicking = false;
         }
